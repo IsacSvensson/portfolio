@@ -173,7 +173,7 @@ function App() {
   return (
     <div className="App" onMouseUp={handleMouseUp}>
       <NavBar/>
-      <OptionsRow reset={resetGrid} visualize={test} clear={clearGrid}/>
+      <OptionsRow reset={resetGrid} visualize={visualize} clear={clearGrid}/>
       <InfoBar/>
       <Container 
         grid={matrix} 
