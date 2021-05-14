@@ -9,7 +9,9 @@ function InfoBar() {
         <div className="opt-row">
             <Icon icon="start" iconValue={startArrow} text="Start Node"></Icon>
             <Icon icon="end" iconValue={bullsEye} text="End Node"></Icon>
-            <Icon icon="node-searched" iconValue="" text="Searched Node"></Icon>
+            <Icon icon="node" iconValue="" text="Unvisited Node"></Icon>
+            <Icon icon="wall" iconValue="" text="Wall Node"></Icon>
+            <Icon icon="node-searched" iconValue="" text="Visited Node"></Icon>
             <Icon icon="node-visited" iconValue="" text="Shortest Path"></Icon>
         </div>
     )
