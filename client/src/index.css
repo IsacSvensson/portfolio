@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+  display: flex;
+  background-color: #5a5a5a;
+  padding: 10px 20px;
+}
+
+.title {
+  display: inline-block;
+}
+
+.link {
+  display: inline-block;
+  color: aliceblue;
+  margin: auto 20px;
+}
+
+.container {
+  padding: 20px 20px;
+  margin: auto;
+}
+
+.start{
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  color: rgb(61, 61, 61);
+}
+
+.end{
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  color: rgb(61, 61, 61);
+}
+
+.row {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.node {
+  display: inline-flex;
+  border: #4bc6ff solid 1px;
+  border-collapse: collapse;
+  height: 25px;
+  width: 25px;
+}
+
+@keyframes wall-animation {
+  from {border: none; background-color: black; transform: scale(1.2); border-radius: 2px;}
+  to {background-color: rgb(61, 61, 61);}
+}
+
+.wall {
+  animation-name: wall-animation;
+  animation-duration: 1s;
+  background-color: rgb(61, 61, 61);
+  border: rgb(61, 61, 61) solid 1px;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: inherit;
+  border-radius: 5px;
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.opt-row {
+  margin-top: 20px;
+  text-align: center;
+}
+
+
+@keyframes visit-animation {
+  from {border: none; background-color: orangered; transform: scale(1.5); border-radius: 100px;}
+  to {background-color: yellow;}
+}
+
+.node-visited {
+  background-color: yellow;
+  border:yellow;
+  animation-name: visit-animation;
+  animation-duration: 1s;
+}
+
+@keyframes search-animation {
+  from {border: none; background-color: rgb(166, 255, 0); transform: scale(1.5); border-radius: 100px;}
+  to {border: none; background-color: rgb(60, 162, 221);}
+}
+
+.node-searched {
+  background-color: rgb(60, 162, 221);
+  animation-name: search-animation;
+  animation-duration: 1s;
+}
+
+.icon-box {
+  display: inline-block;
+  margin: auto 10px;
+  justify-content: center;
+}
+
+.icon {
+  display: inline-flex;
+  border-collapse: collapse;
+  height: 25px;
+  width: 25px;
+  margin: auto 10px;
+}
+
+
+.icon-desc {
+  display: inline-block;
+}
