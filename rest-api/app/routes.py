@@ -2,10 +2,15 @@
 Module containing all routes for the REST-API
 """
 
-from flask import Flask, json, jsonify, request, make_response,current_app as app
+from flask import request, current_app as app, send_from_directory
 from flask.globals import current_app
 from flask.wrappers import Response
 from .algorithms import Node, Dijkstra, NodeEncoder
+
+@app.route("/", defaults={'path':''})
+def serve(path):
+    return send_from_directory(app.static_folder,'index.html')
+
 
 @app.route('/dijkstra', methods=['POST'])
 def dijkstras_algorithm():
