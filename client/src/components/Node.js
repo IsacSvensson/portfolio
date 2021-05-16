@@ -1,10 +1,23 @@
 import PropTypes from 'prop-types'
 import { HiArrowCircleRight } from "react-icons/hi";
 import { BiBullseye } from "react-icons/bi";
+/* import { FaWeightHanging } from "react-icons/fa" */
 
-function Node({node, mouseDown, mouseUp, mouseEnter}) {
+function Node({node, mouseDown, mouseUp, mouseEnter, setContextMenu}) {
     let classVar = "node"
     let val = "";
+
+    const handleContextMenu = (e) => {
+        e.preventDefault()
+        const x = (e.screenX - 50) + 'px'
+        const y = (e.screenY - 125) + 'px'
+        setContextMenu({
+            x:x,
+            y:y,
+            showMenu: true,
+            node:node,
+        })
+    }
 
     if (node.isStart){
         classVar += " start"
@@ -12,6 +25,9 @@ function Node({node, mouseDown, mouseUp, mouseEnter}) {
     } else if (node.isEnd){
         classVar += " end"
         val = <BiBullseye size={20}/>
+    /* } else if (node.isWeight){
+        classVar += " weigth"
+        val = <FaWeightHanging size={20}/> */
     } else if (node.isWall){
         classVar += " wall"
     }
@@ -20,7 +36,17 @@ function Node({node, mouseDown, mouseUp, mouseEnter}) {
         <div 
             id={"node" + node.id}
             className={classVar}
-            onMouseDown={() => mouseDown(node)}
+            onContextMenu={handleContextMenu}
+            onMouseDown={(e) => {
+                const x = (e.screenX - 50) + 'px'
+                const y = (e.screenY - 50) + 'px'
+                mouseDown(node) 
+                setContextMenu({
+                x:x,
+                y:y,
+                showMenu: false,
+                node:node,
+            })}}
             onMouseUp={() => mouseUp(node)}
             onMouseEnter={() => mouseEnter(node)}
         > {val}

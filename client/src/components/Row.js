@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import Node from './Node'
 
-function Row({row, mouseDown, mouseUp, mouseEnter}) {
+function Row({row, mouseDown, mouseUp, mouseEnter, setContextMenu}) {
     let nodes = row.map((node, idx) => 
         <Node 
             node={node}
@@ -9,6 +9,7 @@ function Row({row, mouseDown, mouseUp, mouseEnter}) {
             mouseDown={mouseDown}
             mouseUp={mouseUp}
             mouseEnter={mouseEnter}
+            setContextMenu={setContextMenu}
         />)   
 
     return (

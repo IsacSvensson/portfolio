@@ -4,10 +4,10 @@ import InfoBar from './components/InfoBar'
 import NavBar from './components/NavBar'
 import OptionsRow from './components/OptionsRow'
 
-const START_NODE_ROW = 15
+const START_NODE_ROW = 10
 const START_NODE_COL = 9
-const END_NODE_ROW =15
-const END_NODE_COL = 65
+const END_NODE_ROW =10
+const END_NODE_COL = 50
 
 function App() {
   const [mousePressed, setMouse] = useState(false)
@@ -23,14 +23,15 @@ function App() {
       isVisited: false,
       isWall: false,
       previousNode: null,
+      isWeight: false,
     };
   };
   const populateGrid = () => {
     var grid = []
     var id = 0;
-    for (let row = 0; row < 30; row++) {
+    for (let row = 0; row < 20; row++) {
       grid[row] = []
-      for (let col = 0; col < 75; col++) {
+      for (let col = 0; col < 60; col++) {
         grid[row].push(createNode(id++, col, row))   
       }
     }
@@ -98,9 +99,32 @@ function App() {
     if (!(node.isStart | node.isEnd)){
       setMatrix(matrix.map((row) => 
         row.map((node) => 
-          (node.row === rowIdx) & (node.col === colIdx) ? 
-            {...node, isWall: !node.isWall } : node)))
+        (node.row === rowIdx) & (node.col === colIdx) ? 
+        {...node, isWall: !node.isWall } : node)))
       }
+  }
+
+  const setAttribute = (rowIdx, colIdx, value) => {
+    const node = matrix[rowIdx][colIdx]
+
+    if (node.isStart | node.isStart)
+      return
+    
+      if (value === 'start')
+        setMatrix(matrix.map((row) => 
+          row.map((node) => 
+          (node.row === rowIdx) & (node.col === colIdx) ? 
+          {...node, isWall: false, isStart: true } : node.isStart ? {...node, isStart:false} : node)))
+      else if (value === 'end')
+        setMatrix(matrix.map((row) => 
+          row.map((node) => 
+          (node.row === rowIdx) & (node.col === colIdx) ? 
+          {...node, isWall: false, isEnd: true } : node.isEnd ? {...node, isEnd:false} : node)))
+      else if (value === 'weight')
+        setMatrix(matrix.map((row) => 
+          row.map((node) => 
+          (node.row === rowIdx) & (node.col === colIdx) ? 
+          {...node, isWall: false, isWeight: true } : node)))
   }
 
   const handleMouseDown = (node) => {
@@ -180,6 +204,7 @@ function App() {
         mouseDown={handleMouseDown} 
         mouseUp={handleMouseUp}
         mouseEnter={handleMouseEnter}
+        setAttribute={setAttribute}
       />
     </div>
   );

@@ -135,3 +135,22 @@ body {
 .icon-desc {
   display: inline-block;
 }
+
+.context-menu {
+  position: fixed;
+  border: #000 solid 1px;
+  background-color: white;
+}
+
+.context-menu ul {
+  list-style-type: none;
+}
+
+.context-menu li {
+  padding: 5px;
+}
+
+.context-menu li:hover {
+  background-color: #dfdfdf;
+  cursor: pointer;
+}
