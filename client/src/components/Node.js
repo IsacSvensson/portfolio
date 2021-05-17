@@ -9,8 +9,8 @@ function Node({node, mouseDown, mouseUp, mouseEnter, setContextMenu}) {
 
     const handleContextMenu = (e) => {
         e.preventDefault()
-        const x = (e.screenX - 50) + 'px'
-        const y = (e.screenY - 125) + 'px'
+        const x = (e.clientX) + 'px'
+        const y = (e.clientY) + 'px'
         setContextMenu({
             x:x,
             y:y,
