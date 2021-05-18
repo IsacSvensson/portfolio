@@ -116,6 +116,7 @@ function App() {
 
 
   const toggleWall = (rowIdx, colIdx) => {
+    resetGrid()
     const node = matrix[rowIdx][colIdx]
     if (!(node.isStart | node.isEnd)){
       setMatrix(matrix.map((row) => 
@@ -126,6 +127,7 @@ function App() {
   }
 
   const setAttribute = (rowIdx, colIdx, value) => {
+    resetGrid()
     const node = matrix[rowIdx][colIdx]
 
     if (node.isStart | node.isStart)
@@ -197,6 +199,7 @@ function App() {
   }
 
   async function visualize() {
+    resetGrid()
     const url = process.env.PUBLIC_URL + "/dijkstra"
     const response = await fetch(url, {
       method: 'POST', 
