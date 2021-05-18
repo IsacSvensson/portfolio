@@ -74,6 +74,7 @@ function App() {
   const animateShortestPath = (shortestPath) => {
     let node;
     for (let j = 0; j < shortestPath.length; j++){
+      // eslint-disable-next-line
         setTimeout(() => {
           if (j !== 0){
             const previousNode = JSON.parse(shortestPath[j-1]);
