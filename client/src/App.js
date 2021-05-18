@@ -3,16 +3,34 @@ import Container from './components/Container'
 import InfoBar from './components/InfoBar'
 import NavBar from './components/NavBar'
 import OptionsRow from './components/OptionsRow'
+import UseWindowDimensions from './components/UseWindowDimensions'
 
-const START_NODE_ROW = 10
-const START_NODE_COL = 9
-const END_NODE_ROW =10
-const END_NODE_COL = 50
 
 function App() {
   const [mousePressed, setMouse] = useState(false)
   
   const createNode = (id, col, row) => {
+    const { height, width } = UseWindowDimensions()
+    let START_NODE_ROW;
+    let END_NODE_ROW;
+    let START_NODE_COL;
+    let END_NODE_COL;
+
+    if (height/40 < 20){
+      START_NODE_ROW = 0
+      END_NODE_ROW = Math.floor(height/40)-1
+    } else {
+      START_NODE_ROW = Math.floor(height/40/2)
+      END_NODE_ROW = Math.floor(height/40/2)
+    }
+    if (width/30 < 20){
+      START_NODE_COL = 0
+      END_NODE_COL = Math.floor(width/30) -1
+    } else {
+      START_NODE_COL = 4
+      END_NODE_COL = Math.floor(width/30)-5
+    }
+    
     return {
       id,
       col,
@@ -27,11 +45,13 @@ function App() {
     };
   };
   const populateGrid = () => {
+    const { height, width } = UseWindowDimensions()
+
     var grid = []
     var id = 0;
-    for (let row = 0; row < 20; row++) {
+    for (let row = 0; row < Math.floor(height/40); row++) {
       grid[row] = []
-      for (let col = 0; col < 60; col++) {
+      for (let col = 0; col < Math.floor(width/30); col++) {
         grid[row].push(createNode(id++, col, row))   
       }
     }
