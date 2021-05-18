@@ -1,6 +1,6 @@
 import { HiArrowCircleRight } from "react-icons/hi";
 import { BiBullseye } from "react-icons/bi";
-/* import { FaWeightHanging } from "react-icons/fa" */
+import { FaWeightHanging } from "react-icons/fa"
 
 function ContextMenu({menuState, setContextMenu, setAttribute}) {
     const style = {
@@ -21,11 +21,11 @@ function ContextMenu({menuState, setContextMenu, setAttribute}) {
                         setContextMenu({showMenu:false})
                         }
                     }><BiBullseye size={20} style={{color:"red"}}/> Set End</li>
-                {/* <li onClick={()=>{
+                {<li onClick={()=>{
                         setAttribute(menuState.node.row, menuState.node.col, 'weight')
                         setContextMenu({showMenu:false})
                         }
-                    }><FaWeightHanging size={20} style={{color:"black"}}/> Set Weight</li> */}
+                    }><FaWeightHanging size={20} style={{color:"black"}}/> Set Weight</li> }
             </ul>
         </div>
     )

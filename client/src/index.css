@@ -45,6 +45,13 @@ body {
   color: rgb(61, 61, 61);
 }
 
+.weight{
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  color: rgb(61, 61, 61);
+}
+
 .row {
   margin: 0;
   display: flex;

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { HiArrowCircleRight } from "react-icons/hi";
 import { BiBullseye } from "react-icons/bi";
-/* import { FaWeightHanging } from "react-icons/fa" */
+import { FaWeightHanging } from "react-icons/fa"
 
 function Node({node, mouseDown, mouseUp, mouseEnter, setContextMenu}) {
     let classVar = "node"
@@ -25,9 +25,9 @@ function Node({node, mouseDown, mouseUp, mouseEnter, setContextMenu}) {
     } else if (node.isEnd){
         classVar += " end"
         val = <BiBullseye size={20}/>
-    /* } else if (node.isWeight){
-        classVar += " weigth"
-        val = <FaWeightHanging size={20}/> */
+    } else if (node.isWeight){
+        classVar += " weight"
+        val = <FaWeightHanging size={20}/> 
     } else if (node.isWall){
         classVar += " wall"
     }
