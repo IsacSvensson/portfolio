@@ -30,7 +30,6 @@ function App() {
       START_NODE_COL = 4
       END_NODE_COL = Math.floor(width/30)-5
     }
-    console.log(START_NODE_COL)
     
     return {
       id,
