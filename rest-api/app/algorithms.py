@@ -19,6 +19,7 @@ class Node:
         self.isEnd = node['isEnd']
         self.distance = node['distance'] if node['distance'] else float('inf')
         self.isVisited = node['isVisited']
+        self.isWeight = node['isWeight']
         self.isWall = node['isWall']
         self.previousNode = node['previousNode']
     def returnDict(self):
@@ -62,11 +63,10 @@ class Dijkstra:
     def updateUnvisitedNeighbors(self, node):
         unvisitedNeighbors = self.getUnvisitedNeighbors(node)
         for neighbor in unvisitedNeighbors:
-            if node.distance == float('inf'):
-                neighbor.distance = 1
-            else:
-                neighbor.distance = node.distance + 1
-            neighbor.previousNode = node
+            weight = 3 if neighbor.isWeight else 1
+            if node.distance + weight < neighbor.distance:
+                neighbor.distance = node.distance + weight
+                neighbor.previousNode = node
 
     def getUnvisitedNeighbors(self, node):
         neighbors = []
