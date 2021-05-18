@@ -63,7 +63,7 @@ class Dijkstra:
     def updateUnvisitedNeighbors(self, node):
         unvisitedNeighbors = self.getUnvisitedNeighbors(node)
         for neighbor in unvisitedNeighbors:
-            weight = 3 if neighbor.isWeight else 1
+            weight = 5 if neighbor.isWeight else 1
             if node.distance + weight < neighbor.distance:
                 neighbor.distance = node.distance + weight
                 neighbor.previousNode = node
