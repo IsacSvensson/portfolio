@@ -101,7 +101,7 @@ function App() {
       setMatrix(matrix.map((row) => 
         row.map((node) => 
         (node.row === rowIdx) & (node.col === colIdx) ? 
-        {...node, isWall: !node.isWall } : node)))
+        {...node, isWeight: false, isWall: !node.isWall } : node)))
       }
   }
 
