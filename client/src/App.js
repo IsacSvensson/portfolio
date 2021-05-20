@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Container from './components/Container'
 import InfoBar from './components/InfoBar'
+import Modal from './components/Modal';
 import NavBar from './components/NavBar'
 import OptionsRow from './components/OptionsRow'
 import UseWindowDimensions from './components/UseWindowDimensions'
@@ -248,6 +249,7 @@ function App() {
         mouseEnter={handleMouseEnter}
         setAttribute={setAttribute}
       />
+      <Modal/>
     </div>
   );
 }
