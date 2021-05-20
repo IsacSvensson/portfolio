@@ -113,18 +113,35 @@ function App() {
           }, j*(101-animationSpeed));
       }
   }
-  
 
+  const [WeightPaint, setWeightPaint] = useState(false)
+  
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'w') {
+      setWeightPaint(true)
+    }
+  });
+
+  document.addEventListener('keyup', function (event) {
+    setWeightPaint(false)
+  });
 
   const toggleWall = (rowIdx, colIdx) => {
     resetGrid()
     const node = matrix[rowIdx][colIdx]
-    if (!(node.isStart | node.isEnd)){
+    if (!(node.isStart | node.isEnd) & !WeightPaint){
       setMatrix(matrix.map((row) => 
         row.map((node) => 
         (node.row === rowIdx) & (node.col === colIdx) ? 
         {...node, isWeight: false, isWall: !node.isWall } : node)))
       }
+    if (!(node.isStart | node.isEnd) & WeightPaint){
+      setMatrix(matrix.map((row) => 
+        row.map((node) => 
+        (node.row === rowIdx) & (node.col === colIdx) ? 
+        {...node, isWeight: !node.isWeight, isWall: false } : node)))
+      }
+    
   }
 
   const setAttribute = (rowIdx, colIdx, value) => {
