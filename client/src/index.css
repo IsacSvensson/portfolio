@@ -162,3 +162,94 @@ body {
   background-color: #dfdfdf;
   cursor: pointer;
 }
+
+.modal {
+  padding: 15px;
+  position: absolute;
+  top: 20%;
+  left: 15%;
+  width: 70%;
+  height: 65%;
+  background-color: white;
+  border: 2px solid #4bc6ff;
+  border-radius: 5px;
+  box-shadow: -2rem 2rem 2rem rgba(0, 0, 0, 0.2);
+  filter: blur();
+  transform: scale(1);
+  opacity: 1;
+}
+
+.modal-btn {
+  margin-left: 15px;
+  padding: 8px;
+  border-radius: 5px;
+  background-color: royalblue;
+  color: #dfdfdf;
+  display: inline-block;
+}
+
+.modal-content {
+  height: 90%;
+}
+
+.guide-txt {
+  text-align: center;
+  color: #5a5a5a;
+  margin: 10px 30px;
+}
+
+.guide-txt a {
+  text-decoration: none;
+  color: black;
+}
+
+.guide-txt a:hover {
+  color: rgb(97, 0, 0);
+}
+
+.guide-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 500px;
+  max-height: 300px;
+}
+
+.reference{  
+  vertical-align: super;  
+  font-size: small;  
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 300px;
+  height: 5px;
+  border-radius: 5px;
+  background: rgb(80,80,80);
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #888888;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #888888;
+  cursor: pointer;
+}
