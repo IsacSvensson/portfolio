@@ -1,8 +1,14 @@
-const Button = ({ color, text, onClick }) => {
+const Button = ({ color, text, onClick, align }) => {
+    let style = {
+        backgroundColor: color,
+        float: align
+    };
+
     return <button 
         onClick={onClick}
-        style={{ backgroundColor: color }} 
+        style={style} 
         className='btn'
+
     >
         {text}
     </button> 
