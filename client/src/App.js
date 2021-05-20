@@ -59,6 +59,7 @@ function App() {
   }
   
   const [matrix, setMatrix] = useState(populateGrid());
+  const [animationSpeed, setAnimationSpeed] = useState(50)
 
   const animate = (visitedNodes, shortestPath) => {
     animateVisitedNodes(visitedNodes, shortestPath)
@@ -70,7 +71,7 @@ function App() {
         if (i === visitedNodes.length){
           setTimeout(() => {
             animateShortestPath(shortestPath)
-          }, i*10);
+          }, (101-animationSpeed)*i);
           return 
         }
         setTimeout(() => {
@@ -85,7 +86,7 @@ function App() {
           else
             document.getElementById(`node${node.id}`).className =
             'node node-searched';
-        }, 10 * i);
+        }, (101-animationSpeed)*i);
     }
     resolve(shortestPath);
     })
@@ -109,7 +110,7 @@ function App() {
           else
             document.getElementById(`node${node.id}`).className =
             'node node-visited';
-          }, j*10);
+          }, j*(101-animationSpeed));
       }
   }
   
@@ -221,7 +222,7 @@ function App() {
   return (
     <div className="App" onMouseUp={handleMouseUp}>
       <NavBar/>
-      <OptionsRow reset={resetGrid} visualize={visualize} clear={clearGrid}/>
+      <OptionsRow reset={resetGrid} visualize={visualize} clear={clearGrid} animationSpeed={animationSpeed} setAnimationSpeed={setAnimationSpeed}/>
       <InfoBar/>
       <Container 
         grid={matrix} 
