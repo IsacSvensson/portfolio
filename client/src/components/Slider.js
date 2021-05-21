@@ -13,7 +13,7 @@ const Slider = ({animationSpeed, setSpeed}) => {
         value={animationSpeed}
         onChange={handleChange}
       />
-      <output name="rangeVal">{animationSpeed}%</output>
+      <output name="rangeVal" className="range-val">{animationSpeed}%</output>
     </div>
   )
 }
