@@ -33,12 +33,12 @@ function Modal() {
                 <img src="graph.png" alt="a directed weighted graph" className="guide-img"></img>
             ],
             [
-                <h1 className="guide-txt">Adding walls</h1>,
+                <h1 className="guide-txt">Adding walls and weights</h1>,
                 <br/>,
-                <p className="guide-txt">In graph theory, the shortest path problem is the problem of finding a path between two vertices (or nodes) in a graph such that the sum of the weights of its constituent edges is minimized.<a href="https://en.wikipedia.org/wiki/Shortest_path_problem" className="reference">[Wikipedia]</a></p>,
-                <p className="guide-txt">Applications for the shortest path algorithms are route planning in apps like <a target="_blank" rel="noreferrer" href="https://maps.google.se">Google Maps</a>, finding relevant contact suggestions in Social Networks and IP-routing to mention some.</p>,
-                <p className="guide-txt">In my implementation of the algorithm, the nodes are weighted and no explicit edges exist. Instead, entering a new node adds the weight, simulating directed edges. A standard node has the weight 1 while the weighted node has a weight of 5.</p>,
-                <img src="graph.png" alt="animation showing how to add walls" className="guide-img"></img>
+                <p className="guide-txt">Click on the grid to add walls. Click on the grid while pressing '<b>w</b>' on your keyboard to add weights.</p>,
+                <p className="guide-txt">Walls are impenetrable, i.e. a path can not pass through them. Weights however, are not impenetrable. They are simply more 'expensive' to pass through. In this implementation a weigthed node has the same cost as passing five regular nodes.</p>,
+                <br/>,
+                <img src="draw-animation.gif" alt="animation showing how to add walls" className="guide-img"></img>
             ],
         ]
 
@@ -49,8 +49,9 @@ function Modal() {
     let buttons = [<Button onClick={close} text="Close"/>]
 
     if (showModal.slide !== guideContent.length-1){
-        console.log(showModal.slide, guideContent.length)
         buttons.push(<Button onClick={nextSlide} text="Next" align="right"/>)
+    } else {
+        buttons.push(<Button onClick={close} text="Finish" align="right"/>)
     }
     if (showModal.slide !== 0){
         buttons.push(<Button onClick={previousSlide} text="Previous" align="right"/>)
