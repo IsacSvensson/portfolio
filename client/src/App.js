@@ -60,7 +60,7 @@ function App() {
   }
   
   const [matrix, setMatrix] = useState(populateGrid());
-  const [animationSpeed, setAnimationSpeed] = useState(50)
+  const [animationSpeed, setAnimationSpeed] = useState(100)
 
   const animate = (visitedNodes, shortestPath) => {
     animateVisitedNodes(visitedNodes, shortestPath)
