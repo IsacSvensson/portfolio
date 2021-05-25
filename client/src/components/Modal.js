@@ -36,10 +36,26 @@ function Modal() {
                 <h1 className="guide-txt">Adding walls and weights</h1>,
                 <br/>,
                 <p className="guide-txt">Click on the grid to add walls. Click on the grid while pressing '<b>w</b>' on your keyboard to add weights.</p>,
-                <p className="guide-txt">Walls are impenetrable, i.e. a path can not pass through them. Weights however, are not impenetrable. They are simply more 'expensive' to pass through. In this implementation a weigthed node has the same cost as passing five regular nodes.</p>,
+                <p className="guide-txt">Walls are impenetrable, i.e. a path can not pass through them. Weights however, are not impenetrable. They are simply more 'expensive' to pass through. In this implementation a weigthed node has the same cost as passing ten regular nodes.</p>,
                 <br/>,
                 <img src="draw-animation.gif" alt="animation showing how to add walls" className="guide-img"></img>
             ],
+            [
+                <h1 className="guide-txt">Visualizing the shortest path</h1>,
+                <p className="guide-txt">To start the visualization of the algorithm click the 'Visualize' button.</p>,
+                <p className="guide-txt">The system will first visit nodes until finding the goal visualized in blue. And then mark the shortest path in yellow</p>,
+                <br/>,
+                <img src="nodes.png" alt="Visualization of the shortest path" className="guide-img"></img>
+            ],
+            [
+                <h1 className="guide-txt">Setting animation speed and clearing the grid</h1>,
+                <br/>,
+                <img src="buttons.png" alt="Buttons" className="guide-img"></img>,
+                <br/>,
+                <p className="guide-txt">If you click the "<b>Animation Speed</b>" button a slider will appear. This enables you to change the speed of the visualization.</p>,
+                <p className="guide-txt">To reset the board you can either change a node in the grid or click the "<b>Reset</b>" button. <br/> If you want to clear the board from weights and walls, click "<b>Clear</b>"</p>,
+                <br/>,
+            ]
         ]
 
     const close = () => setVisability({visability: false, slide:0})
