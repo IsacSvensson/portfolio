@@ -5,7 +5,7 @@ def create_app():
     """
     Creates the app, sets up for CORS and includes routes.
     """
-    app = Flask(__name__, static_url_path='', static_folder='../../client/build')
+    app = Flask(__name__, static_url_path='', static_folder='../client/build')
     CORS(app) #comment this on deployment
 
     with app.app_context():

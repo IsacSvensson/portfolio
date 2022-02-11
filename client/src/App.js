@@ -9,6 +9,7 @@ import UseWindowDimensions from './components/UseWindowDimensions'
 
 function App() {
   const [mousePressed, setMouse] = useState(false)
+  const [algorithm, setAlgorithm] = useState("/dijkstra")
   
   const createNode = (id, col, row) => {
     const { height, width } = UseWindowDimensions()
@@ -219,7 +220,7 @@ function App() {
 
   async function visualize() {
     resetGrid()
-    const url = process.env.PUBLIC_URL + "/dijkstra"
+    const url = process.env.PUBLIC_URL + algorithm
     const response = await fetch(url, {
       method: 'POST', 
       mode: 'cors', 
@@ -239,7 +240,7 @@ function App() {
 
   return (
     <div className="App" onMouseUp={handleMouseUp}>
-      <NavBar/>
+      <NavBar algo={algorithm} setAlgo={setAlgorithm}/>
       <OptionsRow reset={resetGrid} visualize={visualize} clear={clearGrid} animationSpeed={animationSpeed} setAnimationSpeed={setAnimationSpeed}/>
       <InfoBar/>
       <Container 

@@ -23,7 +23,14 @@ body {
 .link {
   display: inline-block;
   color: aliceblue;
-  margin: auto 20px;
+  padding: 3px 10px;
+  margin: auto 10px;
+  cursor: pointer;
+}
+
+.active {
+  background-color: rgb(139, 139, 139);
+  border-radius: 10px;
 }
 
 .container {
@@ -89,6 +96,7 @@ body {
   font-size: 15px;
   font-family: inherit;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .btn:active {
